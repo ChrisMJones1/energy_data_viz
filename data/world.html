@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js"></script>
+
+</head>
+
+<body style="padding: 0; margin: 0; background-color: black;">
+    <div id="__worldbox" style="position: relative; margin: auto; width: 500px; height: 500px; background-image: url('earth.jpeg'); background-size: cover;">
+        <div id="__worldbox_overlay-desat" class="moveup" style="width: 100%; height: 500px; top: 0; position: absolute; backdrop-filter: saturate(0);">
+        </div>
+        <div class="wave moveup" style="display: inline-block; width: 250px; height: 100px; left: -250px; top: 425px; position: absolute; border-radius: 50px; backdrop-filter: saturate(0);"></div>
+        <div class="wave2 moveup" style="display: inline-block; width: 250px; height: 100px; left: -250px; top: 425px; position: absolute; border-radius: 50px; backdrop-filter: saturate(0);"></div>
+        <!-- <div class="wave" style="display: inline-block; width: 100px; height: 100px;  top: 200px; position: absolute; border-radius: 50px; backdrop-filter: saturate(0);"></div>
+        <div class="wave" style="display: inline-block; width: 100px; height: 100px;  top: 200px; position: absolute; border-radius: 50px; backdrop-filter: saturate(0);"></div> -->
+
+    </div>
+  
+    <!-- <div id="__worldbox" style="position: relative; margin: auto; width: 500px; height: 500px;">
+        <img src="world.jpeg" style="width: 500px; height: 500px;" />
+        <div id="__worldbox_overlay-desat" style="width: 100%; height: 50%; top: 0; position: absolute; backdrop-filter: saturate(0);">
+        </div>
+        <div class="wave" style="display: inline-block; width: 100px; height: 100px; left: 0; top: 50%; position: absolute; border-radius: 50px; background-color: white;"></div>
+    </div> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+      $('.moveup').animate({top: '-=250'}, 5000, "linear")
+    //   $('.moveup').animate({top: '-=250'}, 5000, "linear")
+  </script>
+</body>
+
+</html>

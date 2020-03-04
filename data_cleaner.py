@@ -5,55 +5,60 @@ import pyarrow
 
 from datetime import datetime
 
-# outdoor temp
-df = pd.read_json ('data/outdoortemp.json', orient='columns')
+# mixed temp
+df = pd.read_json ('data/mixedtemp.json', orient='columns')
 df = df.transpose()
+df = df.reset_index(drop=True)
 
 print(df)
 
-parquetdataname = "data/outdoortemp.parquet"
 
-df.to_parquet(parquetdataname)
+# outdoor temp
+ddf = pd.read_json('data/outdoortemp.json', orient='columns')
+ddf = ddf.transpose()
+ddf = ddf.reset_index(drop=True)
+
+df['outdoor'] = ddf["number"]
+print(df)
+
 
 # exhaust temp
-df = pd.read_json ('data/exhaustairtemp.json', orient='columns')
-df = df.transpose()
+ddf = pd.read_json ('data/exhaustairtemp.json', orient='columns')
+ddf = ddf.transpose()
+ddf = ddf.reset_index(drop=True)
 
+df['exhaust'] = ddf['number']
 print(df)
 
-parquetdataname = "data/exhausttemp.parquet"
-
-df.to_parquet(parquetdataname)
 
 # supply temp
 
-df = pd.read_json ('data/supplyairtemp.json', orient='columns')
-df = df.transpose()
+ddf = pd.read_json ('data/supplyairtemp.json', orient='columns')
+ddf = ddf.transpose()
+ddf = ddf.reset_index(drop=True)
 
+df['supply'] = ddf['number']
 print(df)
 
-parquetdataname = "data/supplytemp.parquet"
-
-df.to_parquet(parquetdataname)
 
 # volume rate
 
-df = pd.read_json ('data/volumerate.json', orient='columns')
-df = df.transpose()
-
+ddf = pd.read_json ('data/volumerate.json', orient='columns')
+ddf = ddf.transpose()
+ddf = ddf.reset_index(drop=True)
+df['volume'] = ddf['number']
 print(df)
 
-parquetdataname = "data/volumerate.parquet"
-
-df.to_parquet(parquetdataname)
 
 # energy rate
 
-df = pd.read_json ('data/energyrate.json', orient='columns')
-df = df.transpose()
-
+ddf = pd.read_json ('data/energyrate.json', orient='columns')
+ddf = ddf.transpose()
+ddf = ddf.reset_index(drop=True)
+print(ddf['number'])
+df['energy'] = ddf['number']
 print(df)
 
-parquetdataname = "data/energyrate.parquet"
+parquetdataname = "data/total.parquet"
 
 df.to_parquet(parquetdataname)

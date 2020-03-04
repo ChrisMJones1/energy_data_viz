@@ -1,0 +1,75 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+
+  .rect {
+    height: 100px;
+    width: 100px;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    margin-top: 100px;
+    margin-left: 100px;
+  }
+  
+  .circle {
+    display: block;
+    width: 100px;
+    height: 50px;
+    top: -50px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+  }
+  
+  .circle:after {
+    content: '';
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    top: -100px;
+    left: -40px;
+    border: 40px solid rgba(0, 0, 0, 0.5);
+  }
+
+  /* display: inline-block; width: 100px; height: 100px; left: 0; top: 50%; position: absolute; border-radius: 50px; background-color: white; */
+
+  .wave {
+    animation: mymove 2.5s infinite linear;
+  }
+  .wave2 {
+    animation: mymove 2.5s infinite linear;
+    animation-delay: 1s;
+  }
+
+  /* #__worldbox_overlay-desat, .wave, .wave2 {
+      
+  } */
+  @keyframes mymove {
+    0% {
+        transform: translateY(0px) translateX(0px) ;
+    }
+    25% {
+        transform: translateY(25px) translateX(250px);
+    }
+      50% {
+        transform: translateY(0px) translateX(375px) skewX(50deg);
+      }
+      75% {
+        transform: translateY(25px) translateX(500px);
+    }
+    100% {
+        transform: translateY(0px) translateX(750px);
+    }
+  }
+  @keyframes leftright {
+    50% {
+        transform: translateX(50px);
+    }
+}
